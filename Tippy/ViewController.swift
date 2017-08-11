@@ -15,16 +15,38 @@ class ViewController: UIViewController {
     @IBOutlet weak var billTextField: UITextField!
     @IBOutlet weak var tipControl: UISegmentedControl!
     
+    //MARK: - View Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("view will appear")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("view did appear")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("view will disappear")
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("view did disappear")
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
+    //MARK: - IBAction
 
     @IBAction func onTap(_ sender: Any) {
         print("tapped!")

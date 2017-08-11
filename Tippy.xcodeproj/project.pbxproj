@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF1ADA231F3CEA3A00305156 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1ADA221F3CEA3A00305156 /* SettingsViewController.swift */; };
+		DF1ADA251F3CFACE00305156 /* SuggestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1ADA241F3CFACE00305156 /* SuggestionsViewController.swift */; };
+		DF1ADA291F3D0A2500305156 /* TipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1ADA281F3D0A2500305156 /* TipViewController.swift */; };
 		DFBC44161F3CD59C00B03DA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBC44151F3CD59C00B03DA7 /* AppDelegate.swift */; };
 		DFBC44181F3CD59C00B03DA7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBC44171F3CD59C00B03DA7 /* ViewController.swift */; };
 		DFBC441B1F3CD59C00B03DA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFBC44191F3CD59C00B03DA7 /* Main.storyboard */; };
@@ -34,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DF1ADA221F3CEA3A00305156 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		DF1ADA241F3CFACE00305156 /* SuggestionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionsViewController.swift; sourceTree = "<group>"; };
+		DF1ADA281F3D0A2500305156 /* TipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipViewController.swift; sourceTree = "<group>"; };
 		DFBC44121F3CD59C00B03DA7 /* Tippy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tippy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFBC44151F3CD59C00B03DA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DFBC44171F3CD59C00B03DA7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +104,9 @@
 			isa = PBXGroup;
 			children = (
 				DFBC44151F3CD59C00B03DA7 /* AppDelegate.swift */,
+				DF1ADA221F3CEA3A00305156 /* SettingsViewController.swift */,
+				DF1ADA241F3CFACE00305156 /* SuggestionsViewController.swift */,
+				DF1ADA281F3D0A2500305156 /* TipViewController.swift */,
 				DFBC44171F3CD59C00B03DA7 /* ViewController.swift */,
 				DFBC44191F3CD59C00B03DA7 /* Main.storyboard */,
 				DFBC441C1F3CD59C00B03DA7 /* Assets.xcassets */,
@@ -262,8 +271,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF1ADA251F3CFACE00305156 /* SuggestionsViewController.swift in Sources */,
 				DFBC44181F3CD59C00B03DA7 /* ViewController.swift in Sources */,
 				DFBC44161F3CD59C00B03DA7 /* AppDelegate.swift in Sources */,
+				DF1ADA291F3D0A2500305156 /* TipViewController.swift in Sources */,
+				DF1ADA231F3CEA3A00305156 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +427,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_ACTIVITY_MODE = "";
+				"DEBUG_ACTIVITY_MODE[sdk=iphonesimulator*]" = disable;
 				DEVELOPMENT_TEAM = 8F2PWFTJG8;
 				INFOPLIST_FILE = Tippy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -428,6 +442,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_ACTIVITY_MODE = "";
 				DEVELOPMENT_TEAM = 8F2PWFTJG8;
 				INFOPLIST_FILE = Tippy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -514,6 +529,7 @@
 				DFBC443C1F3CD59C00B03DA7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DFBC443D1F3CD59C00B03DA7 /* Build configuration list for PBXNativeTarget "TippyTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +538,7 @@
 				DFBC443F1F3CD59C00B03DA7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DFBC44401F3CD59C00B03DA7 /* Build configuration list for PBXNativeTarget "TippyUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +547,7 @@
 				DFBC44421F3CD59C00B03DA7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
