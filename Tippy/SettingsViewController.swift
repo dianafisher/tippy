@@ -34,11 +34,19 @@ class SettingsViewController: UIViewController {
     func loadSettings() {
         
         let defaults = UserDefaults.standard
+        
+        // Load tipPercentaage
         let defaultTipPercentage = defaults.integer(forKey: "tipPercentage")
         print("loaded \(defaultTipPercentage)")
         
         // set the text on our text field
         tipPercentageField.text = "\(defaultTipPercentage)"
+        
+        // Load useTaxInCalculation
+        let useTaxInCalculation = defaults.bool(forKey: "useTaxInCalculation")
+        print("loaded useTaxInCalculation\(useTaxInCalculation)")
+        
+        
     }
     
     func saveSettings() {

@@ -32,6 +32,19 @@ class TIppyViewController: UIViewController {
     
     @IBOutlet weak var tipPercentageLabel: UILabel!
     
+    @IBOutlet weak var minusButton: UIButton!
+    
+    @IBOutlet weak var plusButton: UIButton!
+    
+    
+    
+    // MARK: - Stored Properties
+    var tipPercentage: Int = 0
+    var useTaxInCalculation: Bool = true
+    var guestCount: Int = 1
+    
+    let minGuestCount: Int = 1
+    let maxGuestCount: Int = 5 //10000
     
     // MARK: - View Lifecycle Methods
     override func viewDidLoad() {
@@ -44,7 +57,12 @@ class TIppyViewController: UIViewController {
         super.viewWillAppear(animated)
         
         print("view will appear")
-        // load settings in viewWillAppear since it will get called every time the view is about to appear.  If we only wanted to update the values once, we would use viewDidLoad since that is only called once when the view has been loaded into memory.
+        /* 
+         Load settings in viewWillAppear since it will get called every time the view is about to appear.
+         If we only wanted to update the values once, we would use viewDidLoad since that is only called 
+         once when the view has been loaded into memory.
+         */
+        
         loadSettings()
     }
 
@@ -55,8 +73,47 @@ class TIppyViewController: UIViewController {
     
     // MARK: - IBActions
     
+    @IBAction func guestCountPlusPressed(_ sender: Any) {
+
+        // Increase the guest count if it is less than 10000
+        if (guestCount < maxGuestCount) {
+            guestCount += 1
+        }
+        
+        checkPlusButton()
+        
+        // Enable the minus button, if it is disabled.
+        if (guestCount > minGuestCount && !minusButton.isEnabled) {
+            minusButton.isEnabled = true
+            minusButton.setNeedsDisplay()
+        }
+        
+        // Update the label
+        guestCountLabel.text = "\(guestCount)"
+    }
+    
+    @IBAction func guestCountMinusPressed(_ sender: Any) {
+        
+        // Decrease the guest count if it is greater than one
+        if (guestCount > minGuestCount) {
+            guestCount -= 1
+        }
+        
+        checkMinusButton()
+        
+        // Enable the plus button, if it is disabled.
+        if (guestCount < maxGuestCount && !plusButton.isEnabled) {
+            plusButton.isEnabled = true
+            plusButton.setNeedsDisplay()
+        }
+        
+        // Update the label
+        guestCountLabel.text = "\(guestCount)"
+    }
+    
+    
     @IBAction func tipSuggestionsPressed(_ sender: Any) {
-        // show tip suggestions
+        // Show tip suggestions
     }
     
     // MARK: - Convenience
@@ -64,9 +121,8 @@ class TIppyViewController: UIViewController {
     func loadSettings() {
         
         let defaults = UserDefaults.standard
-        let defaultTipPercentage = defaults.integer(forKey: "tipPercentage")
         
-        var tipPercentage: Int = 0
+        let defaultTipPercentage = defaults.integer(forKey: "tipPercentage")
         
         print("loaded \(defaultTipPercentage)")
         
@@ -74,8 +130,70 @@ class TIppyViewController: UIViewController {
             tipPercentage = defaultTipPercentage
         }
         
-        // update the label text
+        // Update the label text
         tipPercentageLabel.text = "(\(tipPercentage)%)"
+        
+        useTaxInCalculation = defaults.bool(forKey: "useTaxInCalculation")
+        
+        guestCountLabel.text = "\(guestCount)"
+        checkMinusButton()
+        checkPlusButton()
+    }
+    
+    func calculateTip() {
+        let bill = Double(billTotalField.text!) ?? 0
+        let tax = Double(taxField.text!) ?? 0
+        
+        let subTotal: Double = bill + tax
+        subtotalLabel.text = "\(subTotal)"
+        print(subTotal)
+        
+        let tipFraction: Double = Double(tipPercentage) / 100.0
+        print(tipFraction)
+        
+        var tip: Double = 0.0
+        if (useTaxInCalculation) {
+            tip = subTotal * tipFraction
+            
+        } else {
+            tip = bill * tipFraction
+        }
+        
+        let total: Double = subTotal + tip
+        let perPerson: Double = total / Double(guestCount)
+        
+        tipLabel.text = "\(tip)"
+        totalLabel.text = "\(total)"
+        perPersonAmountLabel.text = "\(perPerson)"
+        
+    }
+    
+    func checkMinusButton() {
+        
+        if (guestCount < minGuestCount+1) {
+            // Disable the minus button
+            minusButton.isEnabled = false
+            
+            // Update display of the minusButton
+            minusButton.setNeedsDisplay()
+        }
+    }
+    
+    func checkPlusButton() {
+        if (guestCount > maxGuestCount-1) {
+            // Disable the plus button
+            plusButton.isEnabled = false
+            
+            // Update display of the plus button
+            plusButton.setNeedsDisplay()
+        }
+    }
+    
+    func formatDate() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.locale = Locale(identifier: "en_US")
+        
     }
     
     /*

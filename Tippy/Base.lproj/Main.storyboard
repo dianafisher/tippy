@@ -135,7 +135,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nBc-re-T2u">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nBc-re-T2u">
                                 <rect key="frame" x="11" y="147" width="69" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
@@ -205,6 +205,13 @@
                                 <color key="textColor" red="0.54796719551086426" green="0.55230188369750977" blue="0.76365578174591064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GUEST COUNT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnc-e2-pGl">
+                                <rect key="frame" x="11" y="180" width="248" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="21"/>
+                                <color key="textColor" red="0.54796719549999995" green="0.5523018837" blue="0.76365578170000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TAX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ft-jc-8Sm">
                                 <rect key="frame" x="11" y="261" width="248" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -221,6 +228,13 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TIP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tnn-KV-JcO">
                                 <rect key="frame" x="11" y="341" width="59" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="21"/>
+                                <color key="textColor" red="0.54796719549999995" green="0.5523018837" blue="0.76365578170000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(20%)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eTC-m2-jwe">
+                                <rect key="frame" x="62" y="341" width="59" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="21"/>
                                 <color key="textColor" red="0.54796719549999995" green="0.5523018837" blue="0.76365578170000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -258,13 +272,26 @@
                                     <action selector="tipSuggestionsPressed:" destination="z9P-Sj-heH" eventType="touchUpInside" id="ZXV-Ng-L4P"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(20%)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eTC-m2-jwe">
-                                <rect key="frame" x="62" y="341" width="59" height="29"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OYO-AS-1P2">
+                                <rect key="frame" x="277" y="179" width="42" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="21"/>
-                                <color key="textColor" red="0.54796719549999995" green="0.5523018837" blue="0.76365578170000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <state key="normal" image="plus2">
+                                    <color key="titleColor" red="0.54796719551086426" green="0.55230188369750977" blue="0.76365578174591064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="guestCountPlusPressed:" destination="z9P-Sj-heH" eventType="touchUpInside" id="1Pc-PR-fLC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lzy-3g-EKp">
+                                <rect key="frame" x="328" y="180" width="42" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="minus">
+                                    <color key="titleColor" red="0.54796719549999995" green="0.5523018837" blue="0.76365578170000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="guestCountMinusPressed:" destination="z9P-Sj-heH" eventType="touchUpInside" id="Cyb-h0-ADF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -280,7 +307,9 @@
                         <outlet property="checkNumberLabel" destination="Ae6-GR-LEW" id="FLw-ae-0fA"/>
                         <outlet property="dateLabel" destination="mWT-c7-Cv5" id="ans-mu-ChK"/>
                         <outlet property="guestCountLabel" destination="nBc-re-T2u" id="wg7-FP-eP4"/>
+                        <outlet property="minusButton" destination="lzy-3g-EKp" id="dUy-qn-Zdf"/>
                         <outlet property="perPersonAmountLabel" destination="kAV-h4-5CX" id="qCe-Si-OWF"/>
+                        <outlet property="plusButton" destination="OYO-AS-1P2" id="MFf-8n-7bm"/>
                         <outlet property="subtotalLabel" destination="u24-Qq-pyG" id="jGx-rt-lll"/>
                         <outlet property="taxField" destination="cVH-42-yem" id="vHD-Tp-83j"/>
                         <outlet property="tipLabel" destination="IC1-h6-m8O" id="FWT-m5-NnG"/>
@@ -678,6 +707,8 @@
     </scenes>
     <resources>
         <image name="background_short" width="375" height="603"/>
+        <image name="minus" width="42" height="30"/>
+        <image name="plus2" width="19" height="18"/>
         <image name="settings" width="25" height="25"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
