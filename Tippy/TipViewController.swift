@@ -77,4 +77,6 @@ class TipViewController: UITableViewController {
         print(total)
         
     }
+    
+    
 }

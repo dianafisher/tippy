@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF1ACA5B1F3ED26E0095399A /* PageCurlSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1ACA5A1F3ED26E0095399A /* PageCurlSegue.swift */; };
 		DF1ADA231F3CEA3A00305156 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1ADA221F3CEA3A00305156 /* SettingsViewController.swift */; };
 		DF1ADA251F3CFACE00305156 /* SuggestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1ADA241F3CFACE00305156 /* SuggestionsViewController.swift */; };
 		DF1ADA291F3D0A2500305156 /* TipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1ADA281F3D0A2500305156 /* TipViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DF1ACA5A1F3ED26E0095399A /* PageCurlSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageCurlSegue.swift; sourceTree = "<group>"; };
 		DF1ADA221F3CEA3A00305156 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		DF1ADA241F3CFACE00305156 /* SuggestionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionsViewController.swift; sourceTree = "<group>"; };
 		DF1ADA281F3D0A2500305156 /* TipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				DFBC44151F3CD59C00B03DA7 /* AppDelegate.swift */,
+				DF1ACA5A1F3ED26E0095399A /* PageCurlSegue.swift */,
 				DF1ADA221F3CEA3A00305156 /* SettingsViewController.swift */,
 				DF1ADA241F3CFACE00305156 /* SuggestionsViewController.swift */,
 				DF1ADA281F3D0A2500305156 /* TipViewController.swift */,
@@ -203,6 +206,7 @@
 					DFBC44111F3CD59C00B03DA7 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 8F2PWFTJG8;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					DFBC44251F3CD59C00B03DA7 = {
@@ -273,6 +277,7 @@
 			files = (
 				DF1ADA251F3CFACE00305156 /* SuggestionsViewController.swift in Sources */,
 				DFBC44181F3CD59C00B03DA7 /* ViewController.swift in Sources */,
+				DF1ACA5B1F3ED26E0095399A /* PageCurlSegue.swift in Sources */,
 				DFBC44161F3CD59C00B03DA7 /* AppDelegate.swift in Sources */,
 				DF1ADA291F3D0A2500305156 /* TipViewController.swift in Sources */,
 				DF1ADA231F3CEA3A00305156 /* SettingsViewController.swift in Sources */,
@@ -427,6 +432,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEBUG_ACTIVITY_MODE = "";
 				"DEBUG_ACTIVITY_MODE[sdk=iphonesimulator*]" = disable;
 				DEVELOPMENT_TEAM = 8F2PWFTJG8;
@@ -434,6 +440,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.diana-fisher.Tippy";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -442,12 +450,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEBUG_ACTIVITY_MODE = "";
 				DEVELOPMENT_TEAM = 8F2PWFTJG8;
 				INFOPLIST_FILE = Tippy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.diana-fisher.Tippy";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
