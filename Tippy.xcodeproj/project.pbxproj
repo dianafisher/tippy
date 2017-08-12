@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DF1ACA5B1F3ED26E0095399A /* PageCurlSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1ACA5A1F3ED26E0095399A /* PageCurlSegue.swift */; };
+		DF1ACA5E1F3F92FE0095399A /* TIppyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1ACA5D1F3F92FE0095399A /* TIppyViewController.swift */; };
 		DF1ADA231F3CEA3A00305156 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1ADA221F3CEA3A00305156 /* SettingsViewController.swift */; };
 		DF1ADA251F3CFACE00305156 /* SuggestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1ADA241F3CFACE00305156 /* SuggestionsViewController.swift */; };
 		DF1ADA291F3D0A2500305156 /* TipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1ADA281F3D0A2500305156 /* TipViewController.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		DF1ACA5A1F3ED26E0095399A /* PageCurlSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageCurlSegue.swift; sourceTree = "<group>"; };
+		DF1ACA5D1F3F92FE0095399A /* TIppyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TIppyViewController.swift; sourceTree = "<group>"; };
 		DF1ADA221F3CEA3A00305156 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		DF1ADA241F3CFACE00305156 /* SuggestionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionsViewController.swift; sourceTree = "<group>"; };
 		DF1ADA281F3D0A2500305156 /* TipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +84,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DF1ACA5C1F3F92B50095399A /* deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				DFBC44171F3CD59C00B03DA7 /* ViewController.swift */,
+				DF1ADA281F3D0A2500305156 /* TipViewController.swift */,
+			);
+			name = deprecated;
+			sourceTree = "<group>";
+		};
 		DFBC44091F3CD59C00B03DA7 = {
 			isa = PBXGroup;
 			children = (
@@ -105,12 +116,12 @@
 		DFBC44141F3CD59C00B03DA7 /* Tippy */ = {
 			isa = PBXGroup;
 			children = (
+				DF1ACA5C1F3F92B50095399A /* deprecated */,
 				DFBC44151F3CD59C00B03DA7 /* AppDelegate.swift */,
 				DF1ACA5A1F3ED26E0095399A /* PageCurlSegue.swift */,
 				DF1ADA221F3CEA3A00305156 /* SettingsViewController.swift */,
 				DF1ADA241F3CFACE00305156 /* SuggestionsViewController.swift */,
-				DF1ADA281F3D0A2500305156 /* TipViewController.swift */,
-				DFBC44171F3CD59C00B03DA7 /* ViewController.swift */,
+				DF1ACA5D1F3F92FE0095399A /* TIppyViewController.swift */,
 				DFBC44191F3CD59C00B03DA7 /* Main.storyboard */,
 				DFBC441C1F3CD59C00B03DA7 /* Assets.xcassets */,
 				DFBC441E1F3CD59C00B03DA7 /* LaunchScreen.storyboard */,
@@ -279,6 +290,7 @@
 				DFBC44181F3CD59C00B03DA7 /* ViewController.swift in Sources */,
 				DF1ACA5B1F3ED26E0095399A /* PageCurlSegue.swift in Sources */,
 				DFBC44161F3CD59C00B03DA7 /* AppDelegate.swift in Sources */,
+				DF1ACA5E1F3F92FE0095399A /* TIppyViewController.swift in Sources */,
 				DF1ADA291F3D0A2500305156 /* TipViewController.swift in Sources */,
 				DF1ADA231F3CEA3A00305156 /* SettingsViewController.swift in Sources */,
 			);

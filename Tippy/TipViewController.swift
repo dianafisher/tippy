@@ -27,7 +27,8 @@ class TipViewController: UITableViewController {
         super.viewDidLoad()
 
         print("view did load")
-        
+        let backgroundImage = UIImage(named: "checkHeader")!
+        self.navigationController!.navigationBar.setBackgroundImage(backgroundImage, for: .default)
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
