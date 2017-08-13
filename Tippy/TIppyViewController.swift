@@ -120,6 +120,13 @@ class TIppyViewController: UIViewController {
         // Show tip suggestions
     }
     
+    @IBAction func viewTapped(_ sender: Any) {
+        print("tapped")
+        
+        // Dismiss the keyboard
+        view.endEditing(true)
+    }
+    
     // MARK: - Convenience
     
     func loadSettings() {
@@ -149,16 +156,24 @@ class TIppyViewController: UIViewController {
     
     func initializeViews() {
         
+        // Set tip percentage label text
         tipPercentageLabel.text = "(\(tipPercentage)%)"
         
+        // Set guest count label text
         guestCountLabel.text = "\(guestCount)"
         
+        // Enable/Disable plus and minus buttons
         checkMinusButton()
         checkPlusButton()
         
+        // Set the date label text
         formatDate()
         
+        // Set the check number label text
         formatCheckNumber()
+        
+        // Set the bill total text field as the first responder
+        billTotalField.becomeFirstResponder()
     }
     
     func formatCheckNumber() {
