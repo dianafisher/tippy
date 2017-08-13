@@ -94,6 +94,9 @@ class TIppyViewController: UIViewController {
         
         // Update the label
         guestCountLabel.text = "\(guestCount)"
+        
+        // Recalculate tip
+        calculateTip()
     }
     
     @IBAction func guestCountMinusPressed(_ sender: Any) {
@@ -113,6 +116,9 @@ class TIppyViewController: UIViewController {
         
         // Update the label
         guestCountLabel.text = "\(guestCount)"
+        
+        // Recalculate tip
+        calculateTip()
     }
     
     
@@ -121,10 +127,13 @@ class TIppyViewController: UIViewController {
     }
     
     @IBAction func viewTapped(_ sender: Any) {
-        print("tapped")
         
         // Dismiss the keyboard
         view.endEditing(true)
+    }
+    
+    @IBAction func calculate(_ sender: Any) {
+        calculateTip()
     }
     
     // MARK: - Convenience
@@ -146,7 +155,7 @@ class TIppyViewController: UIViewController {
         useTaxInCalculation = UserDefaultsManager.useTax
         
         // Guest Count
-        guestCount = UserDefaultsManager.guestCount
+        guestCount = max(UserDefaultsManager.guestCount, 1)
         print("guestCount: \(guestCount)")
         
         // Check Number
@@ -193,10 +202,9 @@ class TIppyViewController: UIViewController {
     func calculateTip() {
         let bill = Double(billTotalField.text!) ?? 0
         let tax = Double(taxField.text!) ?? 0
-        
+        print("bill: \(bill)")
         let subTotal: Double = bill + tax
-        subtotalLabel.text = "\(subTotal)"
-        print(subTotal)
+        print("subtotal: \(subTotal)")
         
         let tipFraction: Double = Double(tipPercentage) / 100.0
         print(tipFraction)
@@ -212,9 +220,11 @@ class TIppyViewController: UIViewController {
         let total: Double = subTotal + tip
         let perPerson: Double = total / Double(guestCount)
         
-        tipLabel.text = "\(tip)"
-        totalLabel.text = "\(total)"
-        perPersonAmountLabel.text = "\(perPerson)"
+        subtotalLabel.text = String(format: "$%.2f", subTotal)
+        tipLabel.text =  String(format: "$%.2f", tip)
+        totalLabel.text =  String(format: "$%.2f", total)
+        perPersonAmountLabel.text =  String(format: "$%.2f", perPerson)
+        
         
     }
     
