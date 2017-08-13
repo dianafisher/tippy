@@ -37,7 +37,11 @@ class TIppyViewController: UIViewController {
     
     @IBOutlet weak var plusButton: UIButton!
     
-    @IBOutlet weak var taxPercentageLabel: UILabel!
+    @IBOutlet weak var tipPlusButton: UIButton!
+    
+    @IBOutlet weak var tipMinusButton: UIButton!
+    
+    @IBOutlet weak var guestCountLabel2: UILabel!
     
     // MARK: - Stored Properties
     var tipPercentage: Double = 0.0
@@ -95,11 +99,7 @@ class TIppyViewController: UIViewController {
             minusButton.setNeedsDisplay()
         }
         
-        // Update the label
-        guestCountLabel.text = "\(guestCount)"
-        
-        // Recalculate tip
-        calculateTip()
+        updateGuestCount()
     }
     
     @IBAction func guestCountMinusPressed(_ sender: Any) {
@@ -117,13 +117,28 @@ class TIppyViewController: UIViewController {
             plusButton.setNeedsDisplay()
         }
         
-        // Update the label
-        guestCountLabel.text = "\(guestCount)"
-        
-        // Recalculate tip
-        calculateTip()
+        updateGuestCount()
     }
     
+    @IBAction func tipPlusPressed(_ sender: Any) {
+        
+        // Increaese tip percentage if it is less than 100
+        if (tipPercentage < 100.0) {
+            tipPercentage += 1.0
+        }
+        
+        updateTipPercentage()
+    }
+    
+    @IBAction func tipMinusPressed(_ sender: Any) {
+        
+        // Decrease the tip percentage if it is greater than 0
+        if (tipPercentage > 0.0) {
+            tipPercentage -= 1.0
+        }
+        
+        updateTipPercentage()
+    }
     
     @IBAction func tipSuggestionsPressed(_ sender: Any) {
         // Show tip suggestions
@@ -141,17 +156,35 @@ class TIppyViewController: UIViewController {
     
     // MARK: - Convenience
     
+    func updateGuestCount() {
+        
+        // Update the guest count labels
+        guestCountLabel.text = "\(guestCount)"
+        guestCountLabel2.text = "\(guestCount)"
+        
+        // Recalculate tip
+        calculateTip()
+    }
+    
+    func updateTipPercentage() {
+        
+        // Update the tip percentage label.
+        tipPercentageLabel.text = String(format: "(%.2f)%", tipPercentage)
+        
+        // Recalculate tip
+        calculateTip()
+    }
+    
     func loadSettings() {
         
         print(UserDefaultsManager.useDarkTheme)
         
         // Tip Percentage
         tipPercentage = max(UserDefaultsManager.tipPercentage, 0)
-                
+        
         // Use Tax
         useTaxInCalculation = UserDefaultsManager.useTax
         print("use tax: \(useTaxInCalculation)")
-        
         
         // Guest Count
         guestCount = max(UserDefaultsManager.guestCount, 1)
@@ -168,6 +201,7 @@ class TIppyViewController: UIViewController {
                 
         // Set guest count label text
         guestCountLabel.text = "\(guestCount)"
+        guestCountLabel2.text = "\(guestCount)"
         
         // Enable/Disable plus and minus buttons
         checkMinusButton()
@@ -209,7 +243,6 @@ class TIppyViewController: UIViewController {
         print("subtotal: \(subTotal)")
         
         let tipFraction: Double = Double(tipPercentage) / 100.0
-        print(tipFraction)
         
         var tip: Double = 0.0
         if (useTaxInCalculation) {
@@ -218,16 +251,19 @@ class TIppyViewController: UIViewController {
         } else {
             tip = bill * tipFraction
         }
+        print("tip: \(tip)")
         
-        let total: Double = subTotal + tip
+        // Round tip to the nearest cent
+        let roundedTip = Double(round(100 * tip)/100)
+        
+        let total: Double = subTotal + roundedTip
         let perPerson: Double = total / Double(guestCount)
         
         subtotalLabel.text = String(format: "$%.2f", subTotal)
-        tipLabel.text =  String(format: "$%.2f", tip)
+        tipLabel.text =  String(format: "$%.2f", roundedTip)
         totalLabel.text =  String(format: "$%.2f", total)
         perPersonAmountLabel.text =  String(format: "$%.2f", perPerson)
-        
-        
+                
     }
     
     func checkMinusButton() {

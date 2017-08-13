@@ -282,9 +282,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OYO-AS-1P2">
-                                <rect key="frame" x="277" y="179" width="42" height="30"/>
+                                <rect key="frame" x="226" y="180" width="42" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="plus2">
+                                <state key="normal" image="plus">
                                     <color key="titleColor" red="0.54796719551086426" green="0.55230188369750977" blue="0.76365578174591064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -292,7 +292,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lzy-3g-EKp">
-                                <rect key="frame" x="328" y="180" width="42" height="30"/>
+                                <rect key="frame" x="181" y="180" width="42" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="minus">
                                     <color key="titleColor" red="0.54796719549999995" green="0.5523018837" blue="0.76365578170000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -302,19 +302,32 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cng-u3-TDi">
-                                <rect key="frame" x="150" y="337" width="42" height="30"/>
+                                <rect key="frame" x="226" y="340" width="42" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="plus2">
+                                <state key="normal" image="plus">
                                     <color key="titleColor" red="0.54796719549999995" green="0.5523018837" blue="0.76365578170000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="tipPlusPressed:" destination="z9P-Sj-heH" eventType="touchUpInside" id="0s1-GX-pA2"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H18-Zt-0aE">
-                                <rect key="frame" x="201" y="338" width="42" height="30"/>
+                                <rect key="frame" x="181" y="341" width="42" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="minus">
                                     <color key="titleColor" red="0.54796719549999995" green="0.5523018837" blue="0.76365578170000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="tipMinusPressed:" destination="z9P-Sj-heH" eventType="touchUpInside" id="pI5-VO-Cf5"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pWC-Tz-ZbY">
+                                <rect key="frame" x="277" y="184" width="94" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <connections>
@@ -332,14 +345,17 @@
                         <outlet property="billTotalField" destination="uLp-nh-ur0" id="6Ul-Yy-Vpm"/>
                         <outlet property="checkNumberLabel" destination="Ae6-GR-LEW" id="FLw-ae-0fA"/>
                         <outlet property="dateLabel" destination="mWT-c7-Cv5" id="ans-mu-ChK"/>
-                        <outlet property="guestCountLabel" destination="nBc-re-T2u" id="wg7-FP-eP4"/>
+                        <outlet property="guestCountLabel" destination="nBc-re-T2u" id="8da-3X-vk4"/>
+                        <outlet property="guestCountLabel2" destination="pWC-Tz-ZbY" id="Rsh-AK-NEs"/>
                         <outlet property="minusButton" destination="lzy-3g-EKp" id="dUy-qn-Zdf"/>
                         <outlet property="perPersonAmountLabel" destination="kAV-h4-5CX" id="qCe-Si-OWF"/>
                         <outlet property="plusButton" destination="OYO-AS-1P2" id="MFf-8n-7bm"/>
                         <outlet property="subtotalLabel" destination="u24-Qq-pyG" id="jGx-rt-lll"/>
                         <outlet property="taxField" destination="cVH-42-yem" id="vHD-Tp-83j"/>
                         <outlet property="tipLabel" destination="IC1-h6-m8O" id="FWT-m5-NnG"/>
+                        <outlet property="tipMinusButton" destination="H18-Zt-0aE" id="6X7-rD-Fn8"/>
                         <outlet property="tipPercentageLabel" destination="eTC-m2-jwe" id="IDS-yf-21L"/>
+                        <outlet property="tipPlusButton" destination="cng-u3-TDi" id="B21-BV-wcQ"/>
                         <outlet property="totalLabel" destination="q27-fG-7ac" id="j7B-WB-ycv"/>
                     </connections>
                 </viewController>
@@ -776,7 +792,7 @@
     <resources>
         <image name="background_short" width="375" height="603"/>
         <image name="minus" width="42" height="30"/>
-        <image name="plus2" width="19" height="18"/>
+        <image name="plus" width="14" height="14"/>
         <image name="settings" width="25" height="25"/>
         <image name="settings_bg2" width="375" height="603"/>
     </resources>
