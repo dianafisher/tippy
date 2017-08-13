@@ -25,14 +25,14 @@ class UserDefaultsManager: NSObject {
         }
     }
     
-    static var tipPercentage: Int {
+    static var tipPercentage: Double {
         get {
-            return UserDefaults.standard.integer(forKey: tipPercentageKey)
+            return UserDefaults.standard.double(forKey: tipPercentageKey)
         }
         set {
             UserDefaults.standard.set(newValue, forKey: tipPercentageKey)
         }
-    }
+    }       
     
     static var useTax: Bool {
         get {

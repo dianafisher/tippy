@@ -37,10 +37,13 @@ class TIppyViewController: UIViewController {
     
     @IBOutlet weak var plusButton: UIButton!
     
+    @IBOutlet weak var taxPercentageLabel: UILabel!
     
     // MARK: - Stored Properties
-    var tipPercentage: Int = 0
+    var tipPercentage: Double = 0.0
+    var taxPercentage: Double = 0.0
     var useTaxInCalculation: Bool = true
+    
     var guestCount: Int = 1
     var checkNumber: Int = 1
     
@@ -143,20 +146,15 @@ class TIppyViewController: UIViewController {
         print(UserDefaultsManager.useDarkTheme)
         
         // Tip Percentage
-        let defaultTipPercentage = UserDefaultsManager.tipPercentage
-        
-        print("loaded \(defaultTipPercentage)")
-        
-        if (defaultTipPercentage != 0) {
-            tipPercentage = defaultTipPercentage
-        }
-        
+        tipPercentage = max(UserDefaultsManager.tipPercentage, 0)
+                
         // Use Tax
         useTaxInCalculation = UserDefaultsManager.useTax
+        print("use tax: \(useTaxInCalculation)")
+        
         
         // Guest Count
         guestCount = max(UserDefaultsManager.guestCount, 1)
-        print("guestCount: \(guestCount)")
         
         // Check Number
         checkNumber = max(UserDefaultsManager.checkNumber, 1)
@@ -166,8 +164,8 @@ class TIppyViewController: UIViewController {
     func initializeViews() {
         
         // Set tip percentage label text
-        tipPercentageLabel.text = "(\(tipPercentage)%)"
-        
+        tipPercentageLabel.text = String(format: "(%.2f)%", tipPercentage)
+                
         // Set guest count label text
         guestCountLabel.text = "\(guestCount)"
         
@@ -199,10 +197,14 @@ class TIppyViewController: UIViewController {
         
     }
     
+    
     func calculateTip() {
-        let bill = Double(billTotalField.text!) ?? 0
-        let tax = Double(taxField.text!) ?? 0
+        let bill = Double(billTotalField.text!) ?? 0.0
         print("bill: \(bill)")
+        
+        let tax = Double(taxField.text!) ?? 0.0
+        print("tax: \(tax)")
+        
         let subTotal: Double = bill + tax
         print("subtotal: \(subTotal)")
         

@@ -249,13 +249,6 @@
                                 <color key="textColor" red="0.54796719549999995" green="0.5523018837" blue="0.76365578170000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(20%)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mQX-z1-pmF">
-                                <rect key="frame" x="62" y="261" width="87" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="21"/>
-                                <color key="textColor" red="0.54796719549999995" green="0.5523018837" blue="0.76365578170000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TOTAL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yg4-Xu-CWE">
                                 <rect key="frame" x="11" y="380" width="248" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -671,16 +664,6 @@
                                     <action selector="tipPercentageChanged:" destination="orI-TA-BFI" eventType="editingChanged" id="iCx-Pd-3Po"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LSj-gU-Dt4">
-                                <rect key="frame" x="263" y="214" width="65" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" red="0.54796719549999995" green="0.5523018837" blue="0.76365578170000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
-                                <connections>
-                                    <action selector="tipPercentageChanged:" destination="orI-TA-BFI" eventType="editingChanged" id="fZQ-Q9-M7K"/>
-                                </connections>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sXH-Qh-AIv">
                                 <rect key="frame" x="322" y="20" width="37" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -697,7 +680,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Default Guest Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SmK-ks-xNc">
-                                <rect key="frame" x="33" y="280" width="157" height="24"/>
+                                <rect key="frame" x="33" y="217" width="157" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="18"/>
                                 <color key="textColor" red="0.54796719549999995" green="0.5523018837" blue="0.76365578170000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -710,25 +693,21 @@
                                 <color key="textColor" red="0.54796719549999995" green="0.5523018837" blue="0.76365578170000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Default Tax Percentage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJH-hf-brm">
-                                <rect key="frame" x="33" y="216" width="181" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="18"/>
-                                <color key="textColor" red="0.54796719549999995" green="0.5523018837" blue="0.76365578170000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PJd-qR-JF7">
                                 <rect key="frame" x="298" y="151" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="includeTaxValueChanged:" destination="orI-TA-BFI" eventType="valueChanged" id="Glx-6h-JRG"/>
+                                </connections>
                             </switch>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pmg-Vp-DCB">
-                                <rect key="frame" x="263" y="277" width="84" height="30"/>
+                                <rect key="frame" x="263" y="215" width="84" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.54796719549999995" green="0.5523018837" blue="0.76365578170000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
                                 <connections>
-                                    <action selector="tipPercentageChanged:" destination="orI-TA-BFI" eventType="editingChanged" id="5WZ-Z9-KZA"/>
+                                    <action selector="guestCountChanged:" destination="orI-TA-BFI" eventType="editingChanged" id="irx-50-5VI"/>
                                 </connections>
                             </textField>
                         </subviews>
@@ -736,6 +715,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="mc4-lb-3BT"/>
                     <connections>
+                        <outlet property="guestCountField" destination="pmg-Vp-DCB" id="mMw-h3-CQO"/>
+                        <outlet property="includeTaxSwitch" destination="PJd-qR-JF7" id="H7O-Ch-fZL"/>
                         <outlet property="tipPercentageField" destination="qgI-nM-ESJ" id="gRW-GL-FpI"/>
                     </connections>
                 </viewController>
