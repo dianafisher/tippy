@@ -37,7 +37,6 @@ class TIppyViewController: UIViewController {
     @IBOutlet weak var plusButton: UIButton!
     
     
-    
     // MARK: - Stored Properties
     var tipPercentage: Int = 0
     var useTaxInCalculation: Bool = true
@@ -45,6 +44,8 @@ class TIppyViewController: UIViewController {
     
     let minGuestCount: Int = 1
     let maxGuestCount: Int = 5 //10000
+    
+    lazy var dateFormatter = DateFormatter()
     
     // MARK: - View Lifecycle Methods
     override func viewDidLoad() {
@@ -64,6 +65,7 @@ class TIppyViewController: UIViewController {
          */
         
         loadSettings()
+        initializeViews()
     }
 
     override func didReceiveMemoryWarning() {
@@ -120,9 +122,10 @@ class TIppyViewController: UIViewController {
     
     func loadSettings() {
         
-        let defaults = UserDefaults.standard
+        print(UserDefaultsManager.useDarkTheme)
         
-        let defaultTipPercentage = defaults.integer(forKey: "tipPercentage")
+        // Tip Percentage
+        let defaultTipPercentage = UserDefaultsManager.tipPercentage
         
         print("loaded \(defaultTipPercentage)")
         
@@ -130,14 +133,22 @@ class TIppyViewController: UIViewController {
             tipPercentage = defaultTipPercentage
         }
         
-        // Update the label text
+        // Use Tax
+        useTaxInCalculation = UserDefaultsManager.useTax
+        
+        
+    }
+    
+    func initializeViews() {
+        
         tipPercentageLabel.text = "(\(tipPercentage)%)"
         
-        useTaxInCalculation = defaults.bool(forKey: "useTaxInCalculation")
-        
         guestCountLabel.text = "\(guestCount)"
+        
         checkMinusButton()
         checkPlusButton()
+        
+        formatDate()
     }
     
     func calculateTip() {
@@ -190,10 +201,16 @@ class TIppyViewController: UIViewController {
     }
     
     func formatDate() {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
-        dateFormatter.locale = Locale(identifier: "en_US")
+        // Get today's date
+        let date = Date()
         
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        dateFormatter.locale = Locale(identifier: "en_US")
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        
+        let result = dateFormatter.string(from: date)
+        dateLabel.text = result
     }
     
     /*

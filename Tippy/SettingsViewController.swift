@@ -33,24 +33,23 @@ class SettingsViewController: UIViewController {
     
     func loadSettings() {
         
-        let defaults = UserDefaults.standard
+//        let defaults = UserDefaults.standard
         
         // Load tipPercentaage
-        let defaultTipPercentage = defaults.integer(forKey: "tipPercentage")
+        let defaultTipPercentage = UserDefaultsManager.tipPercentage //defaults.integer(forKey: "tipPercentage")
         print("loaded \(defaultTipPercentage)")
         
         // set the text on our text field
         tipPercentageField.text = "\(defaultTipPercentage)"
         
         // Load useTaxInCalculation
-        let useTaxInCalculation = defaults.bool(forKey: "useTaxInCalculation")
+        let useTaxInCalculation = UserDefaultsManager.useTax //defaults.bool(forKey: "useTaxInCalculation")
         print("loaded useTaxInCalculation\(useTaxInCalculation)")
         
         
     }
     
-    func saveSettings() {
-        let defaults = UserDefaults.standard
+    @IBAction func tipPercentageChanged(_ sender: Any) {
         
         var tipPercentage = Int(tipPercentageField.text!) ?? 0
         
@@ -58,13 +57,8 @@ class SettingsViewController: UIViewController {
         tipPercentage = min(tipPercentage, 100)
         // make sure the tip percentage is not less than 0
         tipPercentage = max(tipPercentage, 0)
-        
-        // save the tip percentage to User Defaults
-        defaults.set(tipPercentage, forKey:"tipPercentage")
-    }
-    
-    @IBAction func tipPercentageChanged(_ sender: Any) {
-        saveSettings()
+
+        UserDefaultsManager.tipPercentage = tipPercentage
     }
 
     /*
