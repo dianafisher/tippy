@@ -13,6 +13,8 @@ class UserDefaultsManager: NSObject {
     private static let useDarkThemeKey = "useDarkThemeKey"
     private static let tipPercentageKey = "tipPercentage"
     private static let useTaxKey = "useTaxInCalculation"
+    private static let checkNumberKey = "checkNumber"
+    private static let guestCountKey = "guestCount"
     
     static var useDarkTheme: Bool {
         get {
@@ -38,6 +40,24 @@ class UserDefaultsManager: NSObject {
         }
         set {
             UserDefaults.standard.set(newValue, forKey: useTaxKey)
+        }
+    }
+    
+    static var checkNumber: Int {
+        get {
+            return UserDefaults.standard.integer(forKey: checkNumberKey)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: checkNumberKey)
+        }
+    }
+    
+    static var guestCount: Int {
+        get {
+            return UserDefaults.standard.integer(forKey: guestCountKey)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: guestCountKey)
         }
     }
     

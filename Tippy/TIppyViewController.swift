@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class TIppyViewController: UIViewController {
 
@@ -41,9 +42,10 @@ class TIppyViewController: UIViewController {
     var tipPercentage: Int = 0
     var useTaxInCalculation: Bool = true
     var guestCount: Int = 1
+    var checkNumber: Int = 1
     
     let minGuestCount: Int = 1
-    let maxGuestCount: Int = 5 //10000
+    let maxGuestCount: Int = 10000
     
     lazy var dateFormatter = DateFormatter()
     
@@ -136,6 +138,12 @@ class TIppyViewController: UIViewController {
         // Use Tax
         useTaxInCalculation = UserDefaultsManager.useTax
         
+        // Guest Count
+        guestCount = UserDefaultsManager.guestCount
+        print("guestCount: \(guestCount)")
+        
+        // Check Number
+        checkNumber = max(UserDefaultsManager.checkNumber, 1)
         
     }
     
@@ -149,6 +157,22 @@ class TIppyViewController: UIViewController {
         checkPlusButton()
         
         formatDate()
+        
+        formatCheckNumber()
+    }
+    
+    func formatCheckNumber() {
+        
+        let formatter = NumberFormatter()
+        formatter.minimumIntegerDigits = 4
+        formatter.maximumIntegerDigits = 4
+        
+        let nsCheckNumber = NSNumber.init(value: checkNumber)
+        
+        let value = formatter.string(from: nsCheckNumber) ?? "0001"
+        
+        checkNumberLabel.text = value
+        
     }
     
     func calculateTip() {
