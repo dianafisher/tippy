@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-class TIppyViewController: UIViewController {
+class TIppyViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: - Outlets
     
@@ -55,6 +55,8 @@ class TIppyViewController: UIViewController {
     
     let minGuestCount: Int = 1
     let maxGuestCount: Int = 10000
+    let maxBillValue: Double = 10000000.00
+    let maxTaxValue: Double = 10000000.00
     
     lazy var dateFormatter = DateFormatter()
     
@@ -63,6 +65,7 @@ class TIppyViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        billTotalField.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -235,13 +238,61 @@ class TIppyViewController: UIViewController {
         dateLabel.text = result
     }
 
+    // MARK: - UITextFieldDeletage
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        
+        if (textField == billTotalField) {
+            
+            // Show an alert if the billTotalField value is invalid.
+            let value = Double(billTotalField.text!) ?? 0
+            if (value > maxBillValue) {
+                let okButtonTitle = NSLocalizedString("OK", comment: "")
+                
+                let formattedValue = String(format: "$%.2f", maxBillValue)
+                let alertController = UIAlertController(title: "Invalid Input", message: "Bill Total must be less than $\(formattedValue)", preferredStyle: .alert)
+                
+                let okAction = UIAlertAction(title: okButtonTitle, style: .default) { _ in
+                    
+                }
+                
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true, completion: { 
+                    
+                })
+                
+                return false
+            }
+        }
+        if (textField == taxField) {
+            let value = Double(taxField.text!) ?? 0
+            if (value > maxTaxValue) {
+                
+                let okButtonTitle = NSLocalizedString("OK", comment: "")
+                
+                let formattedValue = String(format: "$%.2f", maxTaxValue)
+                let alertController = UIAlertController(title: "Invalid Input", message: "Tax must be less than $\(formattedValue)", preferredStyle: .alert)
+                
+                let okAction = UIAlertAction(title: okButtonTitle, style: .default) { _ in
+                    
+                }
+                
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true, completion: {
+                    
+                })
+                
+                
+                return false
+            }
+        }
+        return true
+    }
     
     // MARK: - Convenience
     
     func loadSettings() {
-        
-//        print(UserDefaultsManager.useDarkTheme)
-        
+                
         // Tip Percentage
         tipPercentage = max(UserDefaultsManager.tipPercentage, 0)
         
@@ -287,7 +338,17 @@ class TIppyViewController: UIViewController {
         // Get the bill and tax amounts from the text fields.
         let bill = Double(billTotalField.text!) ?? 0.0
         
+        // If the bill is over the maximum value, skip the rest.
+        if (bill > maxBillValue) {
+            return;
+        }
+        
         let tax = Double(taxField.text!) ?? 0.0
+        
+        // If the tax is over the maximum value, skip the rest.
+        if (tax > maxTaxValue) {
+            return;
+        }
         
         // Calculate the sutbtotal
         let subTotal: Double = bill + tax
