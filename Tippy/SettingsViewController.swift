@@ -89,7 +89,7 @@ class SettingsViewController: UIViewController {
                 
     @IBAction func guestCountChanged(_ sender: Any) {
         
-        var guestCount = Int(guestCountField.text!) ?? 1
+        guestCount = Int(guestCountField.text!) ?? 1
         
         // Make sure the guest count is not less than 1
         guestCount = max(guestCount, 1)

@@ -292,16 +292,15 @@ class TIppyViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Convenience
     
     func loadSettings() {
-                
+        
         // Tip Percentage
         tipPercentage = max(UserDefaultsManager.tipPercentage, 0)
         
         // Use Tax
-        useTaxInCalculation = UserDefaultsManager.useTax
-        print("use tax: \(useTaxInCalculation)")
+        useTaxInCalculation = UserDefaultsManager.useTax        
         
         // Guest Count
-        guestCount = max(UserDefaultsManager.guestCount, 1)
+        guestCount = max(UserDefaultsManager.guestCount, 1)        
         
         // Check Number
         checkNumber = max(UserDefaultsManager.checkNumber, 1)
@@ -325,6 +324,9 @@ class TIppyViewController: UIViewController, UITextFieldDelegate {
         
         // Set the check number label text
         formatCheckNumber()
+        
+        // Set the guest count
+        formatGuestCount()
         
         // set include tax switch value
         includeTaxSwitch.isOn = useTaxInCalculation
