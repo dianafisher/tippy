@@ -66,8 +66,7 @@ class TIppyViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        print("view will appear")
-        /* 
+        /*
          Load settings in viewWillAppear since it will get called every time the view is about to appear.
          If we only wanted to update the values once, we would use viewDidLoad since that is only called 
          once when the view has been loaded into memory.
@@ -263,7 +262,7 @@ class TIppyViewController: UIViewController {
         tipLabel.text =  String(format: "$%.2f", roundedTip)
         totalLabel.text =  String(format: "$%.2f", total)
         perPersonAmountLabel.text =  String(format: "$%.2f", perPerson)
-                
+        
     }
     
     func checkMinusButton() {

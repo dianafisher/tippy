@@ -18,8 +18,8 @@ class PageCurlSegue: UIStoryboardSegue {
             let sourceVC = self.source
             let destVC = self.destination
             
-            sourceVC.navigationController?.present(destVC, animated: false, completion: nil)
-//            sourceVC.navigationController?.pushViewController(destVC, animated: false)
+//            sourceVC.navigationController?.present(destVC, animated: false, completion: nil)
+            sourceVC.navigationController?.pushViewController(destVC, animated: true)
         })
         
         
