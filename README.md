@@ -40,7 +40,7 @@ As part of your pre-work submission, please reflect on the app and answer the fo
 
 **Question 1**: "What are your reactions to the iOS app development platform so far? How would you describe outlets and actions to another developer? Bonus: any idea how they are being implemented under the hood? (It might give you some ideas if you right-click on the Storyboard and click Open As->Source Code")
 
-**Answer:** The iOS app development platform is powerful and vast.
+**Answer:** I've been developing apps on the iOS development platform for a few years now.  My initial reaction when I first started was that it is a powerful platform with a vast set of features.  I struggled at first with knowing how to architect my app using UIViewControllers and UIViews and the navigation controller.  Now that I have written several apps I am much more comfortable with the design patterns used for iOS app development.
 
 An outlet is a property of an object that references another object.  Outlets are defined so that messages can be sent to view objects such as UITextField, UIButton, etc from their managing view controller.  Outlets can be set up graphically in a storyboard in XCode.
 
