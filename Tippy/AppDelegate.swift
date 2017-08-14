@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // Add custom nav bar image.
-        let backgroundImage = UIImage(named: "check_header")
+        let backgroundImage = UIImage(named: "nav_header")
         print(backgroundImage.debugDescription)
         
         UINavigationBar.appearance().setBackgroundImage(backgroundImage, for: .default)

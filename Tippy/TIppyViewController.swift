@@ -319,7 +319,8 @@ class TIppyViewController: UIViewController {
         
         // Set the nav bar button item title equal to the empty string since we have an image background
         let destVC = segue.destination
-        destVC.navigationItem.title = ""
+        destVC.navigationItem.title = ""               
+        
     }
 
 

@@ -668,7 +668,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="settings_bg2" translatesAutoresizingMaskIntoConstraints="NO" id="srE-w6-H6y">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="settings_bg" translatesAutoresizingMaskIntoConstraints="NO" id="srE-w6-H6y">
                                 <rect key="frame" x="0.0" y="64" width="375" height="594"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -788,7 +788,7 @@
         <image name="minus" width="42" height="30"/>
         <image name="plus" width="14" height="14"/>
         <image name="settings" width="25" height="25"/>
-        <image name="settings_bg2" width="375" height="603"/>
+        <image name="settings_bg" width="375" height="603"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
