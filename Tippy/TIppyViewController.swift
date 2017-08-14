@@ -137,6 +137,14 @@ class TIppyViewController: UIViewController {
             tipPercentage += 1
         }
         
+        checkTipPlusButton()
+        
+        // Enable the tip minus button, if it is disabled
+        if (tipPercentage > 0 && !tipMinusButton.isEnabled) {
+            tipMinusButton.isEnabled = true
+            tipMinusButton.setNeedsDisplay()
+        }
+        
         formatTipPercentage()
         
         // Recalculate tip
@@ -148,6 +156,14 @@ class TIppyViewController: UIViewController {
         // Decrease the tip percentage if it is greater than 0
         if (tipPercentage > 0) {
             tipPercentage -= 1
+        }
+        
+        checkTipMinusButton()
+        
+        // Enable the tip plus button, if it is
+        if (tipPercentage < 100 && !tipPlusButton.isEnabled) {
+            tipPlusButton.isEnabled = true
+            tipPlusButton.setNeedsDisplay()
         }
         
         formatTipPercentage()
@@ -180,6 +196,7 @@ class TIppyViewController: UIViewController {
     
     func formatCheckNumber() {
         
+        // Format the check number with leading zeroes
         let formatter = NumberFormatter()
         formatter.minimumIntegerDigits = 4
         formatter.maximumIntegerDigits = 4
@@ -208,6 +225,7 @@ class TIppyViewController: UIViewController {
         // Get today's date
         let date = Date()
         
+        // Format the date as MM/dd/yyyy
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
         dateFormatter.locale = Locale(identifier: "en_US")
@@ -265,14 +283,19 @@ class TIppyViewController: UIViewController {
     }
     
     func calculateTip() {
+        
+        // Get the bill and tax amounts from the text fields.
         let bill = Double(billTotalField.text!) ?? 0.0
         
         let tax = Double(taxField.text!) ?? 0.0
         
+        // Calculate the sutbtotal
         let subTotal: Double = bill + tax
         
+        // Convert tip percentage to a fraction
         let tipFraction: Double = Double(tipPercentage) / 100.0
         
+        // Calculate the tip (with or without tax)
         var tip: Double = 0.0
         
         if (useTaxInCalculation) {
@@ -289,7 +312,6 @@ class TIppyViewController: UIViewController {
         let perPerson: Double = total / Double(guestCount)
         
         // Update labels with the new values
-        
         subtotalLabel.text = String(format: "$%.2f", subTotal)
         tipLabel.text =  String(format: "$%.2f", roundedTip)
         totalLabel.text =  String(format: "$%.2f", total)
@@ -318,6 +340,19 @@ class TIppyViewController: UIViewController {
         }
     }
     
+    func checkTipMinusButton() {
+        if (tipPercentage < 1) {
+            tipMinusButton.isEnabled = false
+            tipMinusButton.setNeedsDisplay()
+        }
+    }
+    
+    func checkTipPlusButton() {
+        if (tipPercentage > 99) {
+            tipPlusButton.isEnabled = false
+            tipPlusButton.setNeedsDisplay()
+        }
+    }
     
 
     // MARK: - Navigation
