@@ -12,9 +12,7 @@
 		DF1ACA601F3FEF720095399A /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1ACA5F1F3FEF720095399A /* UserDefaultsManager.swift */; };
 		DF1ADA231F3CEA3A00305156 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1ADA221F3CEA3A00305156 /* SettingsViewController.swift */; };
 		DF1ADA251F3CFACE00305156 /* SuggestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1ADA241F3CFACE00305156 /* SuggestionsViewController.swift */; };
-		DF1ADA291F3D0A2500305156 /* TipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1ADA281F3D0A2500305156 /* TipViewController.swift */; };
 		DFBC44161F3CD59C00B03DA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBC44151F3CD59C00B03DA7 /* AppDelegate.swift */; };
-		DFBC44181F3CD59C00B03DA7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBC44171F3CD59C00B03DA7 /* ViewController.swift */; };
 		DFBC441B1F3CD59C00B03DA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFBC44191F3CD59C00B03DA7 /* Main.storyboard */; };
 		DFBC441D1F3CD59C00B03DA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFBC441C1F3CD59C00B03DA7 /* Assets.xcassets */; };
 		DFBC44201F3CD59C00B03DA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFBC441E1F3CD59C00B03DA7 /* LaunchScreen.storyboard */; };
@@ -45,10 +43,8 @@
 		DF1ACA5F1F3FEF720095399A /* UserDefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		DF1ADA221F3CEA3A00305156 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		DF1ADA241F3CFACE00305156 /* SuggestionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionsViewController.swift; sourceTree = "<group>"; };
-		DF1ADA281F3D0A2500305156 /* TipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipViewController.swift; sourceTree = "<group>"; };
 		DFBC44121F3CD59C00B03DA7 /* Tippy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tippy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFBC44151F3CD59C00B03DA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DFBC44171F3CD59C00B03DA7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DFBC441A1F3CD59C00B03DA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DFBC441C1F3CD59C00B03DA7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DFBC441F1F3CD59C00B03DA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -86,15 +82,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DF1ACA5C1F3F92B50095399A /* deprecated */ = {
-			isa = PBXGroup;
-			children = (
-				DFBC44171F3CD59C00B03DA7 /* ViewController.swift */,
-				DF1ADA281F3D0A2500305156 /* TipViewController.swift */,
-			);
-			name = deprecated;
-			sourceTree = "<group>";
-		};
 		DFBC44091F3CD59C00B03DA7 = {
 			isa = PBXGroup;
 			children = (
@@ -118,7 +105,6 @@
 		DFBC44141F3CD59C00B03DA7 /* Tippy */ = {
 			isa = PBXGroup;
 			children = (
-				DF1ACA5C1F3F92B50095399A /* deprecated */,
 				DFBC44151F3CD59C00B03DA7 /* AppDelegate.swift */,
 				DF1ACA5A1F3ED26E0095399A /* PageCurlSegue.swift */,
 				DF1ADA221F3CEA3A00305156 /* SettingsViewController.swift */,
@@ -290,11 +276,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF1ADA251F3CFACE00305156 /* SuggestionsViewController.swift in Sources */,
-				DFBC44181F3CD59C00B03DA7 /* ViewController.swift in Sources */,
 				DF1ACA5B1F3ED26E0095399A /* PageCurlSegue.swift in Sources */,
 				DFBC44161F3CD59C00B03DA7 /* AppDelegate.swift in Sources */,
 				DF1ACA5E1F3F92FE0095399A /* TIppyViewController.swift in Sources */,
-				DF1ADA291F3D0A2500305156 /* TipViewController.swift in Sources */,
 				DF1ACA601F3FEF720095399A /* UserDefaultsManager.swift in Sources */,
 				DF1ADA231F3CEA3A00305156 /* SettingsViewController.swift in Sources */,
 			);

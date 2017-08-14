@@ -196,7 +196,7 @@ class TIppyViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: - Formatters
-    
+           
     func formatCheckNumber() {
         
         // Format the check number with leading zeroes
@@ -308,6 +308,8 @@ class TIppyViewController: UIViewController, UITextFieldDelegate {
     }
     
     func initializeViews() {
+        
+        
         
         // Set tip percentage label text
         formatTipPercentage()
