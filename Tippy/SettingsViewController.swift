@@ -27,14 +27,7 @@ class SettingsViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }    
-    
-    @IBAction func doneButtonPressed(_ sender: Any) {
-        print(self.navigationController?.description ?? "nav controller is nil")
-        self.dismiss(animated: true) { 
-            print("bye now")
-        }
-    }
+    }        
     
     func loadSettings() {
         

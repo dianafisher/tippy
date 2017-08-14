@@ -16,6 +16,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Add custom nav bar image.
+        let backgroundImage = UIImage(named: "check_header")
+        print(backgroundImage.debugDescription)
+        
+        UINavigationBar.appearance().setBackgroundImage(backgroundImage, for: .default)
+        
+        // Create purple color, #9FA0CC
+        let red: CGFloat = CGFloat(Float(159)/255.0)
+        let green: CGFloat = CGFloat(Float(160)/255.0)
+        let blue: CGFloat = CGFloat(Float(204)/255.0)
+        
+        UINavigationBar.appearance().tintColor = UIColor(red: red, green: green, blue: blue, alpha: 1)
+        
         return true
     }
 

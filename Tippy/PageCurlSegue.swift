@@ -18,20 +18,8 @@ class PageCurlSegue: UIStoryboardSegue {
             let sourceVC = self.source
             let destVC = self.destination
             
-//            sourceVC.navigationController?.present(destVC, animated: false, completion: nil)
             sourceVC.navigationController?.pushViewController(destVC, animated: true)
         })
         
-        
-        
-        
-//        destVC.view.layer.anchorPoint = CGPoint.zero
-//        sourceVC.view.layer.anchorPoint = CGPoint.zero
-//        
-//        destVC.view.layer.position = CGPoint.zero
-//        sourceVC.view.layer.position = CGPoint.zero
-//        
-//        let containerView: UIView? = sourceVC.view.superview
-//        destVC.view.transform = CGAffineTransfor
     }
 }

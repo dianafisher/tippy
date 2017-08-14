@@ -74,6 +74,9 @@ class TIppyViewController: UIViewController {
         
         loadSettings()
         initializeViews()
+        
+        // Recalculate tip
+        calculateTip()
     }
 
     override func didReceiveMemoryWarning() {
@@ -98,7 +101,10 @@ class TIppyViewController: UIViewController {
             minusButton.setNeedsDisplay()
         }
         
-        updateGuestCount()
+        formatGuestCount()
+        
+        // Recalculate tip
+        calculateTip()
     }
     
     @IBAction func guestCountMinusPressed(_ sender: Any) {
@@ -116,7 +122,10 @@ class TIppyViewController: UIViewController {
             plusButton.setNeedsDisplay()
         }
         
-        updateGuestCount()
+        formatGuestCount()
+        
+        // Recalculate tip
+        calculateTip()
     }
     
     @IBAction func tipPlusPressed(_ sender: Any) {
@@ -126,7 +135,10 @@ class TIppyViewController: UIViewController {
             tipPercentage += 1.0
         }
         
-        updateTipPercentage()
+        formatTipPercentage()
+        
+        // Recalculate tip
+        calculateTip()
     }
     
     @IBAction func tipMinusPressed(_ sender: Any) {
@@ -136,7 +148,10 @@ class TIppyViewController: UIViewController {
             tipPercentage -= 1.0
         }
         
-        updateTipPercentage()
+        formatTipPercentage()
+        
+        // Recalculate tip
+        calculateTip()
     }
     
     @IBAction func tipSuggestionsPressed(_ sender: Any) {
@@ -153,26 +168,50 @@ class TIppyViewController: UIViewController {
         calculateTip()
     }
     
-    // MARK: - Convenience
+    // MARK: - Formatters
     
-    func updateGuestCount() {
+    func formatCheckNumber() {
+        
+        let formatter = NumberFormatter()
+        formatter.minimumIntegerDigits = 4
+        formatter.maximumIntegerDigits = 4
+        
+        let nsCheckNumber = NSNumber.init(value: checkNumber)
+        
+        let value = formatter.string(from: nsCheckNumber) ?? "0001"
+        
+        checkNumberLabel.text = value
+    }
+    
+    func formatGuestCount() {
         
         // Update the guest count labels
         guestCountLabel.text = "\(guestCount)"
         guestCountLabel2.text = "\(guestCount)"
-        
-        // Recalculate tip
-        calculateTip()
     }
     
-    func updateTipPercentage() {
+    func formatTipPercentage() {
         
         // Update the tip percentage label.
-        tipPercentageLabel.text = String(format: "(%.2f)%", tipPercentage)
-        
-        // Recalculate tip
-        calculateTip()
+        let tipString = String(format: "(%.2f)", tipPercentage)
+        tipPercentageLabel.text = "\(tipString)%"
     }
+    
+    func formatDate() {
+        // Get today's date
+        let date = Date()
+        
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        dateFormatter.locale = Locale(identifier: "en_US")
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        
+        let result = dateFormatter.string(from: date)
+        dateLabel.text = result
+    }
+
+    
+    // MARK: - Convenience
     
     func loadSettings() {
         
@@ -196,11 +235,10 @@ class TIppyViewController: UIViewController {
     func initializeViews() {
         
         // Set tip percentage label text
-        tipPercentageLabel.text = String(format: "(%.2f)%", tipPercentage)
+        formatTipPercentage()
                 
         // Set guest count label text
-        guestCountLabel.text = "\(guestCount)"
-        guestCountLabel2.text = "\(guestCount)"
+        formatGuestCount()
         
         // Enable/Disable plus and minus buttons
         checkMinusButton()
@@ -216,47 +254,31 @@ class TIppyViewController: UIViewController {
         billTotalField.becomeFirstResponder()
     }
     
-    func formatCheckNumber() {
-        
-        let formatter = NumberFormatter()
-        formatter.minimumIntegerDigits = 4
-        formatter.maximumIntegerDigits = 4
-        
-        let nsCheckNumber = NSNumber.init(value: checkNumber)
-        
-        let value = formatter.string(from: nsCheckNumber) ?? "0001"
-        
-        checkNumberLabel.text = value
-        
-    }
-    
-    
     func calculateTip() {
         let bill = Double(billTotalField.text!) ?? 0.0
-        print("bill: \(bill)")
         
         let tax = Double(taxField.text!) ?? 0.0
-        print("tax: \(tax)")
         
         let subTotal: Double = bill + tax
-        print("subtotal: \(subTotal)")
         
         let tipFraction: Double = Double(tipPercentage) / 100.0
         
         var tip: Double = 0.0
+        
         if (useTaxInCalculation) {
             tip = subTotal * tipFraction
             
         } else {
             tip = bill * tipFraction
         }
-        print("tip: \(tip)")
         
         // Round tip to the nearest cent
         let roundedTip = Double(round(100 * tip)/100)
         
         let total: Double = subTotal + roundedTip
         let perPerson: Double = total / Double(guestCount)
+        
+        // Update labels with the new values
         
         subtotalLabel.text = String(format: "$%.2f", subTotal)
         tipLabel.text =  String(format: "$%.2f", roundedTip)
@@ -286,28 +308,19 @@ class TIppyViewController: UIViewController {
         }
     }
     
-    func formatDate() {
-        // Get today's date
-        let date = Date()
-        
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .none
-        dateFormatter.locale = Locale(identifier: "en_US")
-        dateFormatter.dateFormat = "MM/dd/yyyy"
-        
-        let result = dateFormatter.string(from: date)
-        dateLabel.text = result
-    }
     
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        // Set the nav bar button item title equal to the empty string since we have an image background
+        let destVC = segue.destination
+        destVC.navigationItem.title = ""
     }
-    */
 
 
 }
