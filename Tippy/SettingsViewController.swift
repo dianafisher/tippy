@@ -16,12 +16,24 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var includeTaxSwitch: UISwitch!
     @IBOutlet weak var guestCountField: UITextField!
     
+    var guestCount: Int = 1
+    var tipPercentage: Int = 0
+    var includeTax: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
         loadSettings()
+        initializeViews()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // save values
+        saveSettings()
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,16 +44,28 @@ class SettingsViewController: UIViewController {
     func loadSettings() {
         
         // tipPercentaage
-        let tipPercentage = UserDefaultsManager.tipPercentage
-        // set the text on our text field
-        tipPercentageField.text = "\(tipPercentage)"
+        tipPercentage = UserDefaultsManager.tipPercentage
         
         // useTaxInCalculation
-        let useTaxInCalculation = UserDefaultsManager.useTax
-        includeTaxSwitch.isOn = useTaxInCalculation
+        includeTax = UserDefaultsManager.useTax
         
         // guestCount
-        let guestCount = UserDefaultsManager.guestCount
+        guestCount = max(UserDefaultsManager.guestCount, 1)
+        
+    }
+    
+    func saveSettings() {
+        // Save the settings in User Defaults
+        
+        UserDefaultsManager.guestCount = guestCount
+        UserDefaultsManager.tipPercentage = tipPercentage
+        UserDefaultsManager.useTax = includeTax
+    }
+    
+    func initializeViews() {
+        
+        tipPercentageField.text = "\(tipPercentage)"
+        includeTaxSwitch.isOn = includeTax
         guestCountField.text = "\(guestCount)"
     }
     
@@ -49,24 +73,18 @@ class SettingsViewController: UIViewController {
     
     @IBAction func tipPercentageChanged(_ sender: Any) {
         
-        var tipPercentage = Double(tipPercentageField.text!) ?? 0
+        tipPercentage = Int(tipPercentageField.text!) ?? 0
         
         // Make sure the tip percentage is not greater than 100
-        tipPercentage = min(tipPercentage, 100.0)
+        tipPercentage = min(tipPercentage, 100)
         
         // Make sure the tip percentage is not less than 0
         tipPercentage = max(tipPercentage, 0)
-
-        // Save the new setting in User Defaults
-        UserDefaultsManager.tipPercentage = tipPercentage
     }
 
     @IBAction func includeTaxValueChanged(_ sender: Any) {
         
-        let includeTax = includeTaxSwitch.isOn
-        
-        // Save the new setting in User Defaults
-        UserDefaultsManager.useTax = includeTax
+        includeTax = includeTaxSwitch.isOn
     }
                 
     @IBAction func guestCountChanged(_ sender: Any) {

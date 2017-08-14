@@ -25,9 +25,9 @@ class UserDefaultsManager: NSObject {
         }
     }
     
-    static var tipPercentage: Double {
+    static var tipPercentage: Int {
         get {
-            return UserDefaults.standard.double(forKey: tipPercentageKey)
+            return UserDefaults.standard.integer(forKey: tipPercentageKey)
         }
         set {
             UserDefaults.standard.set(newValue, forKey: tipPercentageKey)

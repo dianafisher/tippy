@@ -43,8 +43,10 @@ class TIppyViewController: UIViewController {
     
     @IBOutlet weak var guestCountLabel2: UILabel!
     
+    @IBOutlet weak var includeTaxSwitch: UISwitch!
+    
     // MARK: - Stored Properties
-    var tipPercentage: Double = 0.0
+    var tipPercentage: Int = 0
     var taxPercentage: Double = 0.0
     var useTaxInCalculation: Bool = true
     
@@ -77,7 +79,7 @@ class TIppyViewController: UIViewController {
         
         // Recalculate tip
         calculateTip()
-    }
+    }        
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -131,8 +133,8 @@ class TIppyViewController: UIViewController {
     @IBAction func tipPlusPressed(_ sender: Any) {
         
         // Increaese tip percentage if it is less than 100
-        if (tipPercentage < 100.0) {
-            tipPercentage += 1.0
+        if (tipPercentage < 100) {
+            tipPercentage += 1
         }
         
         formatTipPercentage()
@@ -144,8 +146,8 @@ class TIppyViewController: UIViewController {
     @IBAction func tipMinusPressed(_ sender: Any) {
         
         // Decrease the tip percentage if it is greater than 0
-        if (tipPercentage > 0.0) {
-            tipPercentage -= 1.0
+        if (tipPercentage > 0) {
+            tipPercentage -= 1
         }
         
         formatTipPercentage()
@@ -165,6 +167,12 @@ class TIppyViewController: UIViewController {
     }
     
     @IBAction func calculate(_ sender: Any) {
+        calculateTip()
+    }
+    
+    @IBAction func includeTaxSwitchChanged(_ sender: Any) {
+        useTaxInCalculation = includeTaxSwitch.isOn
+        
         calculateTip()
     }
     
@@ -193,8 +201,7 @@ class TIppyViewController: UIViewController {
     func formatTipPercentage() {
         
         // Update the tip percentage label.
-        let tipString = String(format: "(%.2f)", tipPercentage)
-        tipPercentageLabel.text = "\(tipString)%"
+        tipPercentageLabel.text = "(\(tipPercentage)%)"
     }
     
     func formatDate() {
@@ -215,7 +222,7 @@ class TIppyViewController: UIViewController {
     
     func loadSettings() {
         
-        print(UserDefaultsManager.useDarkTheme)
+//        print(UserDefaultsManager.useDarkTheme)
         
         // Tip Percentage
         tipPercentage = max(UserDefaultsManager.tipPercentage, 0)
@@ -249,6 +256,9 @@ class TIppyViewController: UIViewController {
         
         // Set the check number label text
         formatCheckNumber()
+        
+        // set include tax switch value
+        includeTaxSwitch.isOn = useTaxInCalculation
         
         // Set the bill total text field as the first responder
         billTotalField.becomeFirstResponder()
