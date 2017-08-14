@@ -40,14 +40,16 @@ As part of your pre-work submission, please reflect on the app and answer the fo
 
 **Question 1**: "What are your reactions to the iOS app development platform so far? How would you describe outlets and actions to another developer? Bonus: any idea how they are being implemented under the hood? (It might give you some ideas if you right-click on the Storyboard and click Open As->Source Code")
 
-**Answer:** ..*The iOS app development platform is powerful and vast.  
-..*An outlet is a property of an object that references another object.  Outlets are defined so that messages can be sent to view objects such as UITextField, UIButton, etc from their managing view controller.  Outlets can be set up graphically in a storyboard in XCode.
-..*Actions are part of the target-action design pattern in iOS where one object holds information needed to send a message to another object when an event occurs.  The stored information includes an action selector and a target object to receive the message.  Actions can be set up in a storyboard with the IBAction type qualifier.
+**Answer:** The iOS app development platform is powerful and vast.
+
+An outlet is a property of an object that references another object.  Outlets are defined so that messages can be sent to view objects such as UITextField, UIButton, etc from their managing view controller.  Outlets can be set up graphically in a storyboard in XCode.
+
+Actions are part of the target-action design pattern in iOS where one object holds information needed to send a message to another object when an event occurs.  The stored information includes an action selector and a target object to receive the message.  Actions can be set up in a storyboard with the IBAction type qualifier.
 
 
 Question 2: "Swift uses [Automatic Reference Counting](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AutomaticReferenceCounting.html#//apple_ref/doc/uid/TP40014097-CH20-ID49) (ARC), which is not a garbage collector, to manage memory. Can you explain how you can get a strong reference cycle for closures? (There's a section explaining this concept in the link, how would you summarize as simply as possible?)"
 
-**Answer:** [Enter your answer here in a paragraph or two].
+**Answer:** If you assign a closure to the propery of a class instance, the body of that closure may 'capture' that instance (also known as 'capturing self').  By assigning a closure to a property, you are assigning a reference to that closure.  So now the class instance has a strong reference to the closure, and the closure has a strong reference to the class instance (through the use of self).
 
 
 ## License
