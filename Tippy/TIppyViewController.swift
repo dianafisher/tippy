@@ -77,7 +77,7 @@ class TIppyViewController: UIViewController, UITextFieldDelegate {
          If we only wanted to update the values once, we would use viewDidLoad since that is only called 
          once when the view has been loaded into memory.
          */
-        
+                
         loadSettings()
         initializeViews()
         
@@ -207,10 +207,19 @@ class TIppyViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Formatters
     
+    func formatCurrency(value: Double) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.maximumFractionDigits = 2
+        formatter.locale = Locale(identifier: Locale.current.identifier)
+        let result = formatter.string(from: value as NSNumber)
+        return result!
+    }
+    
     func formatBillAmount() {
         billTotalField.text = String(format: "%.2f", billAmount)
     }
-           
+    
     func formatCheckNumber() {
         
         // Format the check number with leading zeroes
@@ -395,10 +404,12 @@ class TIppyViewController: UIViewController, UITextFieldDelegate {
         let perPerson: Double = total / Double(guestCount)
         
         // Update labels with the new values
-        subtotalLabel.text = String(format: "$%.2f", subTotal)
-        tipLabel.text =  String(format: "$%.2f", roundedTip)
-        totalLabel.text =  String(format: "$%.2f", total)
-        perPersonAmountLabel.text =  String(format: "$%.2f", perPerson)
+        let subtotalStr = formatCurrency(value: subTotal)
+        subtotalLabel.text = subtotalStr
+        
+        tipLabel.text =  formatCurrency(value: roundedTip) // String(format: "$%.2f", roundedTip)
+        totalLabel.text =  formatCurrency(value: total)    //String(format: "$%.2f", total)
+        perPersonAmountLabel.text =  formatCurrency(value: perPerson) //String(format: "$%.2f", perPerson)
         
     }
     
