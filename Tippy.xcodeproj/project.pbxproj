@@ -10,7 +10,6 @@
 		DF1ACA5B1F3ED26E0095399A /* PageCurlSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1ACA5A1F3ED26E0095399A /* PageCurlSegue.swift */; };
 		DF1ACA5E1F3F92FE0095399A /* TIppyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1ACA5D1F3F92FE0095399A /* TIppyViewController.swift */; };
 		DF1ACA601F3FEF720095399A /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1ACA5F1F3FEF720095399A /* UserDefaultsManager.swift */; };
-		DF1ACA621F4231410095399A /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = DF1ACA611F4231410095399A /* README.md */; };
 		DF1ADA231F3CEA3A00305156 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1ADA221F3CEA3A00305156 /* SettingsViewController.swift */; };
 		DF1ADA251F3CFACE00305156 /* SuggestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1ADA241F3CFACE00305156 /* SuggestionsViewController.swift */; };
 		DFBC44161F3CD59C00B03DA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBC44151F3CD59C00B03DA7 /* AppDelegate.swift */; };
@@ -42,7 +41,6 @@
 		DF1ACA5A1F3ED26E0095399A /* PageCurlSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageCurlSegue.swift; sourceTree = "<group>"; };
 		DF1ACA5D1F3F92FE0095399A /* TIppyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TIppyViewController.swift; sourceTree = "<group>"; };
 		DF1ACA5F1F3FEF720095399A /* UserDefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
-		DF1ACA611F4231410095399A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		DF1ADA221F3CEA3A00305156 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		DF1ADA241F3CFACE00305156 /* SuggestionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionsViewController.swift; sourceTree = "<group>"; };
 		DFBC44121F3CD59C00B03DA7 /* Tippy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tippy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,7 +85,6 @@
 		DFBC44091F3CD59C00B03DA7 = {
 			isa = PBXGroup;
 			children = (
-				DF1ACA611F4231410095399A /* README.md */,
 				DFBC44141F3CD59C00B03DA7 /* Tippy */,
 				DFBC44291F3CD59C00B03DA7 /* TippyTests */,
 				DFBC44341F3CD59C00B03DA7 /* TippyUITests */,
@@ -281,7 +278,6 @@
 				DF1ADA251F3CFACE00305156 /* SuggestionsViewController.swift in Sources */,
 				DF1ACA5B1F3ED26E0095399A /* PageCurlSegue.swift in Sources */,
 				DFBC44161F3CD59C00B03DA7 /* AppDelegate.swift in Sources */,
-				DF1ACA621F4231410095399A /* README.md in Sources */,
 				DF1ACA5E1F3F92FE0095399A /* TIppyViewController.swift in Sources */,
 				DF1ACA601F3FEF720095399A /* UserDefaultsManager.swift in Sources */,
 				DF1ADA231F3CEA3A00305156 /* SettingsViewController.swift in Sources */,

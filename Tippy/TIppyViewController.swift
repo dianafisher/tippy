@@ -48,6 +48,7 @@ class TIppyViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Stored Properties
     var tipPercentage: Int = 0
     var taxPercentage: Double = 0.0
+    var billAmount: Double = 0.0
     var useTaxInCalculation: Bool = true
     
     var guestCount: Int = 1
@@ -82,7 +83,16 @@ class TIppyViewController: UIViewController, UITextFieldDelegate {
         
         // Recalculate tip
         calculateTip()
-    }        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // save the current bill total to user defaults
+        let billAmount = Double(billTotalField.text!) ?? 0.0
+
+        UserDefaultsManager.lastBillAmount = billAmount
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -196,6 +206,10 @@ class TIppyViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: - Formatters
+    
+    func formatBillAmount() {
+        billTotalField.text = String(format: "%.2f", billAmount)
+    }
            
     func formatCheckNumber() {
         
@@ -293,6 +307,9 @@ class TIppyViewController: UIViewController, UITextFieldDelegate {
     
     func loadSettings() {
         
+        // Bill Amount
+        billAmount = UserDefaultsManager.lastBillAmount
+        
         // Tip Percentage
         tipPercentage = max(UserDefaultsManager.tipPercentage, 0)
         
@@ -309,7 +326,8 @@ class TIppyViewController: UIViewController, UITextFieldDelegate {
     
     func initializeViews() {
         
-        
+        // Set bill amount
+        formatBillAmount()
         
         // Set tip percentage label text
         formatTipPercentage()

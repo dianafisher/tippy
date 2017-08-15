@@ -15,6 +15,17 @@ class UserDefaultsManager: NSObject {
     private static let useTaxKey = "useTaxInCalculation"
     private static let checkNumberKey = "checkNumber"
     private static let guestCountKey = "guestCount"
+    private static let lastBillAmountKey = "lastBillAmount"
+    
+    
+    static var lastBillAmount: Double {
+        get {
+            return UserDefaults.standard.double(forKey: lastBillAmountKey)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: lastBillAmountKey)
+        }
+    }
     
     static var useDarkTheme: Bool {
         get {
